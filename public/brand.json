@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brandName": "L'Oréal",
+    "brandImage": "https://i.ibb.co/tchsVd8/loreal-brand-img.jpg"
+  },
+  {
+    "id": 2,
+    "brandName": "Estée Lauder",
+    "brandImage": "https://i.ibb.co/W0hPxxN/estee-lauder-brand-img.jpg"
+  },
+  {
+    "id": 3,
+    "brandName": "Chanel",
+    "brandImage": "https://i.ibb.co/HDSLfJC/chanel-brand-img.jpg"
+  },
+  {
+    "id": 4,
+    "brandName": "Dior",
+    "brandImage": "https://i.ibb.co/TK68nsb/dior-brand-img.jpg"
+  },
+  {
+    "id": 5,
+    "brandName": "Revlon",
+    "brandImage": "https://i.ibb.co/LYV5fJt/revlon-brand-img.jpg"
+  },
+  {
+    "id": 6,
+    "brandName": "Avon",
+    "brandImage": "https://i.ibb.co/0QhBtK0/avon-brand-img.jpg"
+  }
+]
