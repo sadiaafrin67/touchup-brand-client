@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
+import { BsFillPencilFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+
+
 
 const SingleProduct = ({ product }) => {
 
     const {name, brand, category
-, description, image, price, rating, _id    } = product
+, image, price, rating,  _id   } = product
     
     
 
   return (
-    <div className="">
+    <div >
+        
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
           <img
@@ -19,17 +24,17 @@ const SingleProduct = ({ product }) => {
 
         <div className="p-6">
           <div className="">
-            <div className="flex items-center justify-between mb-3">
-              <h5 className="block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900">
+            <div className="flex items-center justify-between text-black mb-3">
+              <h5 className="block font-sans text-xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                 {name}
               </h5>
-              <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
+              <p className="flex items-center gap-1.5 font-sans text-lg font-bold leading-relaxed text-blue-gray-900 antialiased">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   aria-hidden="true"
-                  className="-mt-0.5 h-5 w-5 text-yellow-700"
+                  className="-mt-0.5 h-5 w-5 text-yellow-400"
                 >
                   <path
                     fillRule="evenodd"
@@ -37,32 +42,43 @@ const SingleProduct = ({ product }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-                5.0
+               {rating}
               </p>
             </div>
 
             <div className="flex items-center justify-between mb-2">
-              <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                Apple AirPods
+              <p className="block font-sans text-lg antialiased font-semibold leading-relaxed text-blue-gray-900">
+                Brand Name: <span className="text-[#EC6F66] font-bold">{brand}</span>
               </p>
-              <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                $95.00
+              <p className="block font-sans text-lg antialiased font-semibold leading-relaxed text-blue-gray-900">
+                Price: {price}$
               </p>
             </div>
           </div>
 
-          <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-            With plenty of talk and listen time, voice-activated Siri access,
-            and an available wireless charging case.
+          <p className="block font-sans text-base antialiased font-semibold leading-normal text-gray-700 ">
+            Product Type: {category}
           </p>
         </div>
         <div className="p-6 pt-0">
-          <button
-            className="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Add to Cart
-          </button>
+
+      <div className='flex justify-between items-center '>
+
+
+      <Link to={`/update/${_id}`}>
+      <button className="btn rounded-lg bg-[#EC6F66] text-white border-none capitalize hover:bg-rose-600"><BsFillPencilFill></BsFillPencilFill>update</button>
+      </Link>
+
+
+
+        <Link to={`/product/${_id}`}>
+        <button className="btn rounded-lg bg-[#EC6F66] text-white border-none capitalize hover:bg-rose-600"><BsFillArrowRightCircleFill className='text-lg'></BsFillArrowRightCircleFill>Details</button>
+        </Link>
+
+
+      </div>
+
+          
         </div>
       </div>
     </div>

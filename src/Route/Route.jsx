@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Root from "../Layout/Root";
 import BrandProducts from "../Pages/Home/BrandProducts";
+import Details from "../Pages/Home/Details";
+import Update from "../Pages/Home/Update";
 
 
 
@@ -31,6 +33,17 @@ const route = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+               path: '/product/:id',
+               element: <Details></Details>,
+               loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                
             },
             {
                 path: '/mycart',
