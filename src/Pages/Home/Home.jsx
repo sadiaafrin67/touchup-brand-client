@@ -1,6 +1,9 @@
+
 import Brands from "./Brands";
 
 const Home = () => {
+    
+
     return (
         <div>
             <Brands></Brands>

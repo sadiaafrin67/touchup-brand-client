@@ -4,6 +4,7 @@ import Brand from "./Brand";
 const Brands = () => {
   const [brands, setBrands] = useState([]);
 
+
   useEffect(() => {
     fetch("brand.json")
       .then((res) => res.json())
