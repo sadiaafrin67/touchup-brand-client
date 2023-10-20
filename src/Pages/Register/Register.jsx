@@ -1,12 +1,71 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash  } from 'react-icons/fa';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import swal from 'sweetalert';
+
+
+
 
 
 const Register = () => {
 
-    const [showPass, setShowPass] = useState(false)
-    const [showPassTwo, setShowPassTwo] = useState(false)
+
+
+
+
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false)
+  const [showPassTwo, setShowPassTwo] = useState(false)
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    const checkbox = e.target.checkbox.checked;
+    console.log(name, email, password, confirmPassword, checkbox);
+
+
+     if(password !== confirmPassword){
+      
+      return swal("Signup failed", "Your password did not match", "error");
+    }
+
+    else if(password.length < 6){
+      
+      return swal("Signup failed", "Password must be 6 characters long", "error");
+    }
+
+   else if(!/(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{6,}$/.test(password)){
+
+      return swal("Signup failed", "Password must contain at least one uppercase letter and one special character", "error");
+    }
+
+    else if(!checkbox){
+      
+      return swal("Signup failed", "You must agree to our terms and conditions", "error");
+    }
+
+
+    createUser(email, password) 
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      e.target.reset()
+      
+      swal("Signup", "You are successfully signed up", "success");
+      navigate('/')
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+
+  
 
 
     return (
@@ -21,7 +80,7 @@ const Register = () => {
                     Registration
                   </h3>
                 </div>
-                <form  className="card-body">
+                <form  onSubmit={handleRegister} className="card-body">
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Your Name</span>
@@ -79,19 +138,21 @@ const Register = () => {
                       </a>
                     </label>
                   </div>
+
 <div className="inline-flex items-center">
-  <label className="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="checkbox" data-ripple-dark="true">
-    <input type="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-[#EC6F66] checked:before:bg-pink-500 hover:before:opacity-10 border-gray-400" id="checkbox" defaultChecked />
+  <label className="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="login" data-ripple-dark="true">
+    <input name="checkbox" id="login" type="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 border-gray-400  before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-[#EC6F66] checked:bg-[#EC6F66] checked:before:bg-[#EC6F66] hover:before:opacity-10" />
     <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" strokeWidth={1}>
         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
       </svg>
-      
     </div>
-    
   </label>
-  <p className="ml-2 text-sm font-medium text-gray-600"> Accept Our Terms & Conditions</p>
+  <label className="mt-px font-light ml-2 text-gray-700 cursor-pointer select-none" htmlFor="login">
+    Accept Our Terms and Conditions
+  </label>
 </div>
+
 
 
 

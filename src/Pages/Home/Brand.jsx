@@ -22,7 +22,7 @@ const Brand = ({ brand }) => {
   <p className="block font-sans text-center mb-4 text-2xl antialiased font-bold leading-relaxed text-blue-gray-900 text-[#EC6F66]">
        {brandName}
       </p>
-    <img src={brandImage} className="object-cover w-full md:w-[500px] h-[280px] " />
+    <img src={brandImage} className="object-cover scale-100 hover:scale-110 w-full md:w-[500px] h-[280px] " />
   </div>
   
 </div>

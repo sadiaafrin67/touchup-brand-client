@@ -1,9 +1,69 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash  } from 'react-icons/fa';
+import { AuthContext } from "../../Providers/AuthProvider";
+import swal from 'sweetalert';
 
 
 const Login = () => {
+
+  const {  SignInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+  const location = useLocation()
+  const navigate = useNavigate()
+
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const handleGithubSignIn = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    SignInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+       
+
+        
+
+        e.target.reset();
+
+        swal("Signin", "You are successfully signed in", "success");
+        navigate(location?.state ? location.state : '/')
+      })
+      .catch((error) => {
+        console.log(error);
+        swal("Signin failed", "Invalid email or password", "error");
+      });
+  };
+
+
 
     const [showPass, setShowPass] = useState(false)
 
@@ -17,7 +77,7 @@ const Login = () => {
                   Login
                 </h3>
               </div>
-              <form  className="card-body">
+              <form onSubmit={handleLogin}  className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -63,9 +123,9 @@ const Login = () => {
               </p>
   
               <div className="mx-auto md:flex md:justify-evenly mb-6">
-              <p><button  className="btn btn-grad ">Continue With Google</button></p>
+              <p><button onClick={handleGoogleSignIn}  className="btn btn-grad ">Continue With Google</button></p>
   
-              <p><button  className="btn btn-grad">Continue With Github</button></p>
+              <p><button onClick={handleGithubSignIn}  className="btn btn-grad">Continue With Github</button></p>
               </div>
   
             </div>

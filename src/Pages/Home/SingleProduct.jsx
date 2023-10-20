@@ -14,11 +14,11 @@ const SingleProduct = ({ product }) => {
   return (
     <div >
         
-      <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
+      <div className="relative  flex flex-col text-gray-700 bg-white shadow-lg  rounded-xl bg-clip-border">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
           <img
             src={image}
-            className="object-cover mx-auto h-full  w-full    rounded-xl border-[#EC6F66] "
+            className="object-cover scale-100 hover:scale-110 mx-auto h-full  w-full    rounded-xl border-[#EC6F66] "
           />
         </div>
 
@@ -28,7 +28,8 @@ const SingleProduct = ({ product }) => {
               <h5 className="block font-sans text-xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
                 {name}
               </h5>
-              <p className="flex items-center gap-1.5 font-sans text-lg font-bold leading-relaxed text-blue-gray-900 antialiased">
+
+              <p className="flex items-center gap-1.5 font-sans text-lg font-bold leading-relaxed text-blue-gray-900 antialiased">Rating:
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -44,6 +45,8 @@ const SingleProduct = ({ product }) => {
                 </svg>
                {rating}
               </p>
+
+
             </div>
 
             <div className="flex items-center justify-between mb-2">
@@ -72,7 +75,7 @@ const SingleProduct = ({ product }) => {
 
 
         <Link to={`/product/${_id}`}>
-        <button className="btn rounded-lg bg-[#EC6F66] text-white border-none capitalize hover:bg-rose-600"><BsFillArrowRightCircleFill className='text-lg'></BsFillArrowRightCircleFill>Details</button>
+        <button className="btn rounded-lg bg-[#EC6F66] text-white border-none capitalize hover:bg-rose-600 "><BsFillArrowRightCircleFill className='text-lg'></BsFillArrowRightCircleFill>Details</button>
         </Link>
 
 

@@ -1,6 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
+import swal from 'sweetalert';
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const defaultImg = "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1696786604~exp=1696787204~hmac=c10645727b8724eecda4984ef1d8fbfba92a9c9072a57b851c28c9b1d8d62b81";
+
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("logged out");
+        swal("Signout", "You are successfully signed out", "success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -59,7 +79,7 @@ const Navbar = () => {
           Login
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/register"
           className={({ isActive, isPending }) =>
@@ -72,7 +92,7 @@ const Navbar = () => {
         >
           Register
         </NavLink>
-      </li>
+      </li> */}
       
     </>
   );
@@ -122,10 +142,44 @@ const Navbar = () => {
       </ul>
     </div>
 
-
     <div className="navbar-end">
-    <a className="btn btn-grad">Button</a>
-  </div>
+        
+        {
+         user && (
+           <div className="dropdown dropdown-end">
+           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+             <div className="w-10 rounded-full">
+               <img src={`${user?.photoURL ? user?.photoURL : defaultImg}`} />
+             </div>
+           </label>
+           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+             <li>
+               <a className="justify-between">
+                 {user.displayName ? user.displayName : "anonymous"}
+                 
+               </a>
+             </li>
+             <li><a>{user.email ? user.email : "anonymous@example.com"}</a></li>
+             {console.log("js diye aslm",user.photoURL)}
+             <li><Link onClick={handleLogOut}>Logout</Link></li>
+           </ul>
+         </div>
+         )
+        }
+   
+          <div >
+          {user ? (
+             ''
+           ) : (
+             <Link to="/login">
+               <button className="btn btn-grad ">Login</button>
+             </Link>
+           )}
+          </div>
+   
+   
+         </div>
+    
 
   </div>
   );

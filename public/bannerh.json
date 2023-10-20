@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "brandName": "L'Oréal",
+        "details": " Revel in a 5% Glow-Up with, ",
+        "more": " L'Oréal's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/9Z5xjh9/loreal-brand-two.jpg"
+      },
+    {
+        "id": 1,
+        "brandName": "L'Oréal",
+        "details": " Revel in a 5% Glow-Up with, ",
+        "more": " L'Oréal's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/9Z5xjh9/loreal-brand-two.jpg"
+      },
+    {
+        "id": 1,
+        "brandName": "L'Oréal",
+        "details": " Revel in a 5% Glow-Up with, ",
+        "more": " L'Oréal's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/9Z5xjh9/loreal-brand-two.jpg"
+      },
+    {
+        "id": 2,
+        "brandName": "Estée Lauder",
+        "details": " Revel in a 8% Glow-Up with, ",
+        "more": " Estée Lauder's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/W0hPxxN/estee-lauder-brand-img.jpg"
+      },
+    {
+        "id": 4,
+        "brandName": "Chanel",
+        "details": " Revel in a 10% Glow-Up with, ",
+        "more": " Chanel's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/W0hPxxN/estee-lauder-brand-img.jpg"
+      },
+    {
+        "id": 5,
+        "brandName": "Dior",
+
+        "details": " Revel in a 7% Glow-Up with, ",
+        "more": "Dior's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/W0hPxxN/estee-lauder-brand-img.jpg"
+      },
+      {
+        "id": 6,
+        "brandName": "Revlon",
+        "details": " Revel in a 9% Glow-Up with, ",
+        "more": "Revlon's Exclusive Discount Delight",
+        "brandImage": "https://i.ibb.co/W0hPxxN/estee-lauder-brand-img.jpg"
+      }
+]
