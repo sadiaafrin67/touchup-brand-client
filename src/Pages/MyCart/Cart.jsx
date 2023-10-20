@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
 
-const Cart = ({ product, setItems, items }) => {
+const Cart = ({ product, setProducts, products }) => {
   const { name, brand, category, image, price, _id } = product;
   console.log(_id)
 
@@ -29,8 +29,10 @@ const Cart = ({ product, setItems, items }) => {
                 console.log(data)
               Swal.fire("Deleted!", "Your product has been deleted.", "success");
 
-              const remaining = items.filter((item) => item._id !== _id);
-              setItems(remaining);
+              const remaining = products.filter((item) => item._id !== _id);
+              console.log(remaining)
+
+              setProducts(remaining);
             }
           });
       }
