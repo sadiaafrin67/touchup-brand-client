@@ -16,7 +16,7 @@ const SingleBanner = ({ banner }) => {
 
   return (
     <div>
-      <div  className="my-20">
+      <div  className="mb-20 mt-10">
         
           <Swiper 
              modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -30,17 +30,17 @@ const SingleBanner = ({ banner }) => {
           {banner.length > 0 && banner?.map((banners) => (
           
              <SwiperSlide className='w-full h-full md:w-[100%] md:h-[620px]' key={banners.id}>
-              <div  style={{backgroundImage: `url(${banners.brandImage})` , backgroundSize:"cover", height:"620px", width:"100%" }}>
+              <div className='md:h-[620px] h-[400px]'  style={{backgroundImage: `url(${banners.brandImage})` , backgroundSize:"cover",  width:"100%" }}>
 
-<div>
-<div className='text center flex flex-col justify-center items-center align-middle text-center content-center h-[50vh] pt-16 md:h-[40vh]'>
-<h2 className='md:text-8xl text-3xl font-bold'>{banners.brandName}</h2>
-<p className='md:text-4xl texl-lg font semibold text-black'>{banners.details}</p>
+{/* <div> */}
+<div className='text center flex flex-col justify-center md:pt-9 items-center text-center h-full pt-16  '>
+<h2 className='lg:text-8xl  md:text-4xl text-3xl font-bold'>{banners.brandName}</h2>
+<p className='md:text-4xl  texl-lg font semibold text-black'>{banners.details}</p>
 <p className='md:text-3xl texl-lg font semibold text-black'>{banners.more}</p>
 <button className='btn-grad btn mx-auto'>Shop Now</button>
 </div>
 
-</div>
+{/* </div> */}
               </div>
              </SwiperSlide>
              
