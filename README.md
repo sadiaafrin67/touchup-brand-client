@@ -4,6 +4,10 @@
 
 Welcome to Touch Up, your one-stop destination for all your favorite beauty and cosmetic products. This website is built with cutting-edge technologies including React Router DOM, Tailwind CSS, Firebase, and MongoDB. As a beginner developer, here's what you can achieve with Touch Up:
 
+**Live Link:** [Touch Up Website](https://touchup-brand-client.web.app/)
+
+
+
 ## Features
 
 - **User-friendly Interface**: Touch Up offers an intuitive and easy-to-navigate interface for a seamless shopping experience.
