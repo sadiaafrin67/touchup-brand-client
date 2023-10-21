@@ -24,7 +24,7 @@ const TopSell = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
-                sell.map(products => <TopCard key={products.id} products={products}></TopCard>)
+                sell?.map(products => <TopCard key={products.id} products={products}></TopCard>)
             }
             </div>
         </div>

@@ -27,7 +27,7 @@ const SingleBanner = ({ banner }) => {
              onSwiper={(swiper) => console.log(swiper)}
              onSlideChange={() => console.log('slide change')}
            >
-          {banner.map((banners) => (
+          {banner.length > 0 && banner?.map((banners) => (
           
              <SwiperSlide className='w-full h-full md:w-[100%] md:h-[620px]' key={banners.id}>
               <div  style={{backgroundImage: `url(${banners.brandImage})` , backgroundSize:"cover", height:"620px", width:"100%" }}>

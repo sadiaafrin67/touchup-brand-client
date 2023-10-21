@@ -19,7 +19,7 @@ const Cart = ({ product, setProducts, products }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cardInfo/${_id}`, {
+        fetch(`https://touchup-brand-server.vercel.app/cardInfo/${_id}`, {
           method: "DELETE"
         })
           .then((res) => res.json())
@@ -29,7 +29,7 @@ const Cart = ({ product, setProducts, products }) => {
                 console.log(data)
               Swal.fire("Deleted!", "Your product has been deleted.", "success");
 
-              const remaining = products.filter((item) => item._id !== _id);
+              const remaining =products.length && products?.filter((item) => item._id !== _id);
               console.log(remaining)
 
               setProducts(remaining);
@@ -80,6 +80,9 @@ Cart.propTypes = {
   product: PropTypes.object,
   setItems: PropTypes.func,
   items: PropTypes.array,
+  products: PropTypes.array
+
+  
 };
 
 export default Cart;

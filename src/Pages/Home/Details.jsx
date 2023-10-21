@@ -15,7 +15,7 @@ const Details = () => {
     const { name, price, brand, description, rating, category, image } = products
 
     const handleAddCart = () => {
-      fetch('http://localhost:5000/cardInfo', {
+      fetch('https://touchup-brand-server.vercel.app/cardInfo', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

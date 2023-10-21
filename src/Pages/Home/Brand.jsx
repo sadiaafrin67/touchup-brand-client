@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 const Brand = ({ brand }) => {
 
   const brandNames = useParams();
-  console.log("params diye aslm",brandNames);
+  // console.log("params diye aslm",brandNames);
 
 
 

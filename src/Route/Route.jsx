@@ -29,7 +29,7 @@ const route = createBrowserRouter([
             {
                 path: "/brand/:id",
                 element: <PrivateRoute><BrandProducts></BrandProducts></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://touchup-brand-server.vercel.app/products')
             },
             {
                 path: '/addproduct',
@@ -38,12 +38,12 @@ const route = createBrowserRouter([
             {
                path: '/product/:id',
                element: <PrivateRoute><Details></Details></PrivateRoute>,
-               loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+               loader: ({params}) => fetch(`https://touchup-brand-server.vercel.app/products/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params}) => fetch(`https://touchup-brand-server.vercel.app/products/${params.id}`)
                 
             },
             {
