@@ -149,7 +149,7 @@ const Navbar = () => {
 
       <div className="flex  items-center gap-2">
         <img
-          className="w-[50px] hidden md:block h-[50px] "
+          className="w-[50px] hidden md:block h-[50px] rounded-full"
           src="https://i.ibb.co/tLWRpPZ/touchup-logo-1.jpg"
           alt=""
         />
